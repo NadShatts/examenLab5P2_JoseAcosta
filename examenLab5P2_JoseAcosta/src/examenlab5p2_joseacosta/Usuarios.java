@@ -4,7 +4,9 @@
  */
 package examenlab5p2_joseacosta;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Random;
 
 /**
  *
@@ -32,7 +34,7 @@ public class Usuarios {
         this.fechaNacimiento = fechaNacimiento;
         this.sexo = sexo;
         this.departamento = departamento;
-        this.numeroIdentidad = numeroIdentidad;
+       this.numeroIdentidad = numeroIdentidad;
     }
 
     public String getNombre() {
@@ -41,6 +43,7 @@ public class Usuarios {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+            
     }
 
     public String getApellido() {
@@ -88,9 +91,9 @@ public class Usuarios {
     }
 
     public void setNumeroIdentidad(String numeroIdentidad) {
-        this.numeroIdentidad = numeroIdentidad;
     }
     
-    
-    
 }
+
+    
+
