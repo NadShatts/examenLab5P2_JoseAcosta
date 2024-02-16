@@ -4,6 +4,9 @@
  */
 package examenlab5p2_joseacosta;
 
+import java.util.Date;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author josed
@@ -26,12 +29,45 @@ public class InicioSesion extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        ventanaempleado = new javax.swing.JFrame();
+        jLabel4 = new javax.swing.JLabel();
+        ventanaciviles = new javax.swing.JFrame();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         nombre = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        contraseña = new javax.swing.JPasswordField();
         jButton1 = new javax.swing.JButton();
+
+        jLabel4.setText("Bienvenido");
+
+        javax.swing.GroupLayout ventanaempleadoLayout = new javax.swing.GroupLayout(ventanaempleado.getContentPane());
+        ventanaempleado.getContentPane().setLayout(ventanaempleadoLayout);
+        ventanaempleadoLayout.setHorizontalGroup(
+            ventanaempleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ventanaempleadoLayout.createSequentialGroup()
+                .addGap(61, 61, 61)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(380, Short.MAX_VALUE))
+        );
+        ventanaempleadoLayout.setVerticalGroup(
+            ventanaempleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ventanaempleadoLayout.createSequentialGroup()
+                .addGap(46, 46, 46)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(323, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout ventanacivilesLayout = new javax.swing.GroupLayout(ventanaciviles.getContentPane());
+        ventanaciviles.getContentPane().setLayout(ventanacivilesLayout);
+        ventanacivilesLayout.setHorizontalGroup(
+            ventanacivilesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        ventanacivilesLayout.setVerticalGroup(
+            ventanacivilesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -48,14 +84,19 @@ public class InicioSesion extends javax.swing.JFrame {
 
         jLabel3.setText("Contraseña");
 
-        jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
+        contraseña.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jPasswordField1ActionPerformed(evt);
+                contraseñaActionPerformed(evt);
             }
         });
 
         jButton1.setFont(new java.awt.Font("Roboto", 3, 12)); // NOI18N
         jButton1.setText("Ingresar");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -79,7 +120,7 @@ public class InicioSesion extends javax.swing.JFrame {
                                 .addComponent(jLabel2)
                                 .addComponent(nombre)
                                 .addComponent(jLabel3)
-                                .addComponent(jPasswordField1, javax.swing.GroupLayout.DEFAULT_SIZE, 263, Short.MAX_VALUE)))))
+                                .addComponent(contraseña, javax.swing.GroupLayout.DEFAULT_SIZE, 263, Short.MAX_VALUE)))))
                 .addContainerGap(229, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -94,7 +135,7 @@ public class InicioSesion extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel3)
                 .addGap(18, 18, 18)
-                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(contraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(40, Short.MAX_VALUE))
@@ -107,13 +148,31 @@ public class InicioSesion extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_nombreActionPerformed
 
-    private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
+    private void contraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contraseñaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jPasswordField1ActionPerformed
+    }//GEN-LAST:event_contraseñaActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+  if(nombre.getText().contains(empleado3.nombre ) && contraseña.getText().contains(empleado3.contraseña)){
+      nombre.setText("");
+  contraseña.setText("");
+  this.setVisible(false);
+ventanaempleado.setVisible(true);
+ventanaempleado.pack();
+  }else if(nombre.getText().contains(civiles4.nombre) && contraseña.getText().contains(civiles4.contraseña)){
+      nombre.setText("");
+  contraseña.setText("");
+  this.setVisible(false);
+  ventanaciviles.setVisible(true);
+  ventanaciviles.pack();
+  }else{
+      JOptionPane.showMessageDialog(this, "Su contraseña o usuario son incorrectos");
+  }
+    }//GEN-LAST:event_jButton1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -147,15 +206,25 @@ public class InicioSesion extends javax.swing.JFrame {
             public void run() {
                 new InicioSesion().setVisible(true);
             }
-        });
+        });     
+       
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPasswordField contraseña;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JPasswordField jPasswordField1;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JTextField nombre;
+    private javax.swing.JFrame ventanaciviles;
+    private javax.swing.JFrame ventanaempleado;
     // End of variables declaration//GEN-END:variables
+
+Usuarios empleado3 = new Empleados("Ingeniería", "Desarrollador", 5, "Juan", "Pérez", "contraseña123", new Date(), "Masculino", "01", "1234567890");
+
+Usuarios civiles4 = new Civiles("Jose Daniel Acosta Diaz", "Acosta Diaz", "1234", new Date(), "Femenino", "02", "123321");
+        
+       
 }
