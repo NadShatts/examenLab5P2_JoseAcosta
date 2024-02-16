@@ -20,6 +20,7 @@ public class InicioSesion extends javax.swing.JFrame {
      */
     public InicioSesion() {
         initComponents();
+          civil.add(civiles4);
     }
 
     /**
@@ -58,7 +59,7 @@ public class InicioSesion extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        lista2 = new javax.swing.JTable();
         jLabel15 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
         jTable3 = new javax.swing.JTable();
@@ -102,10 +103,7 @@ public class InicioSesion extends javax.swing.JFrame {
 
         lista.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
                 "Nombre", "N0 Identidad", "Fecha de Nacimiento"
@@ -117,10 +115,7 @@ public class InicioSesion extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "Title 1", "Title 2", "Title 3", "Title 4"
@@ -247,9 +242,9 @@ public class InicioSesion extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ventanaempleadoLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel4)
-                .addGap(118, 118, 118)
+                .addGap(74, 74, 74)
                 .addComponent(jButton2)
-                .addGap(37, 37, 37))
+                .addGap(81, 81, 81))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ventanaempleadoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jTabbedPane1)
@@ -272,18 +267,18 @@ public class InicioSesion extends javax.swing.JFrame {
 
         jLabel14.setText("Informacion Personal");
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        lista2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Nombre", "No. Identidad", "Fecha de Nacimiento"
             }
         ));
-        jScrollPane3.setViewportView(jTable2);
+        jScrollPane3.setViewportView(lista2);
 
         jLabel15.setText("Tramites");
 
@@ -393,6 +388,11 @@ public class InicioSesion extends javax.swing.JFrame {
         jTabbedPane2.addTab("Gestion de Tramites", jPanel4);
 
         jButton4.setText("Cerrar Sesion");
+        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton4MouseClicked(evt);
+            }
+        });
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
@@ -406,9 +406,9 @@ public class InicioSesion extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ventanacivilesLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(70, 70, 70)
+                .addGap(38, 38, 38)
                 .addComponent(jButton4)
-                .addGap(39, 39, 39))
+                .addGap(71, 71, 71))
             .addGroup(ventanacivilesLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jTabbedPane2)
@@ -417,15 +417,11 @@ public class InicioSesion extends javax.swing.JFrame {
         ventanacivilesLayout.setVerticalGroup(
             ventanacivilesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ventanacivilesLayout.createSequentialGroup()
-                .addGroup(ventanacivilesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(ventanacivilesLayout.createSequentialGroup()
-                        .addGap(17, 17, 17)
-                        .addComponent(jButton4)
-                        .addGap(33, 33, 33))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ventanacivilesLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                .addGap(11, 11, 11)
+                .addGroup(ventanacivilesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jTabbedPane2)
                 .addGap(18, 18, 18))
         );
@@ -523,7 +519,8 @@ public class InicioSesion extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        if (nombre.getText().contains(empleado3.nombre) && contraseña.getText().contains(empleado3.contraseña)) {
+        for (Usuarios usuarios : civil) {
+        if (nombre.getText().equals(usuarios.getNombre()+ " " +usuarios.getApellido()) && contraseña.getText().contains(empleado3.contraseña)) {
             nombre.setText("");
             contraseña.setText("");
             this.setVisible(false);
@@ -538,6 +535,31 @@ public class InicioSesion extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(this, "Su contraseña o usuario son incorrectos");
         }
+        
+       
+         DefaultTableModel modelo = (DefaultTableModel) lista.getModel();
+          modelo.setRowCount(0);
+        for (Usuarios civiles : civil) {
+            Object[] lola = {civiles.getNombre() + " " + civiles.getApellido(), civiles.getNumeroIdentidad(), civiles.getFechaNacimiento()};
+           
+            modelo.addRow(lola);
+            
+            lista.setModel(modelo);
+
+        }
+        }
+        
+        DefaultTableModel modelo = (DefaultTableModel) lista2.getModel();
+          modelo.setRowCount(0);
+        for (Usuarios civiles : civil) {
+            Object[] lola = {civiles.getNombre() + " " + civiles.getApellido(), civiles.getNumeroIdentidad(), civiles.getFechaNacimiento()};
+           
+            modelo.addRow(lola);
+            
+            lista2.setModel(modelo);
+        }
+        
+        
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -545,21 +567,12 @@ public class InicioSesion extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-        this.setVisible(false);
+        ventanaempleado.setVisible(false);
+        this.setVisible(true);
     }//GEN-LAST:event_jButton2MouseClicked
 
     private void jTabbedPane1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPane1MouseClicked
 
- civil.add(empleado3);
-            civil.add(civiles4);
-        for (Usuarios civiles : civil) {
-            Object[] lola = {civiles.getNombre() + " " + civiles.getApellido(), civiles.getNumeroIdentidad(), civiles.getFechaNacimiento()};
-            DefaultTableModel modelo = (DefaultTableModel) lista.getModel();
-            modelo.addRow(lola);
-            
-            lista.setModel(modelo);
-
-        }
     }//GEN-LAST:event_jTabbedPane1MouseClicked
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -573,6 +586,11 @@ public class InicioSesion extends javax.swing.JFrame {
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
+      ventanaciviles.setVisible(false);
+      this.setVisible(true);
+    }//GEN-LAST:event_jButton4MouseClicked
 
     /**
      * @param args the command line arguments
@@ -648,17 +666,17 @@ public class InicioSesion extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
     private javax.swing.JTable jTable3;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextPane jTextPane1;
     private javax.swing.JTable lista;
+    private javax.swing.JTable lista2;
     private javax.swing.JTextField nombre;
     private javax.swing.JFrame ventanaciviles;
     private javax.swing.JFrame ventanaempleado;
     // End of variables declaration//GEN-END:variables
 
-    Usuarios empleado3 = new Empleados("Ingeniería", "Desarrollador", 5, "Juan", "Pérez", "contraseña123", new Date(), "Masculino", "01", "1234567890");
+    Usuarios empleado3 = new Empleados("Ingeniería", "Desarrollador", 5, "Juan", "Perez", "1234", new Date(), "Masculino", "01", "1234567890");
     Usuarios civiles4 = new Civiles("Jose", "Acosta", "1234", new Date(), "Femenino", "02", "123321");
 
     ArrayList<Usuarios> civil = new ArrayList();
