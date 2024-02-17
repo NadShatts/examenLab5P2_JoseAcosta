@@ -7,7 +7,6 @@ package examenlab5p2_joseacosta;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -661,14 +660,10 @@ public class InicioSesion extends javax.swing.JFrame {
 
    }else{
        usuarioscombo.setSelectedIndex(2);
-   }
-   
-   
+   } 
      
  }
  
-
-
         }
         
     }//GEN-LAST:event_jButton1MouseClicked
@@ -705,7 +700,7 @@ public class InicioSesion extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4MouseClicked
 
     private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
-Tramites t = new Tramites(nombretramite.getText(), descripciontramite.getText(), "09212" , new Date());
+Tramites t = new Tramites(nombretramite.getText(), descripciontramite.getText(), "030912092024" , new Date());
 tramites.add(t);
 JOptionPane.showMessageDialog(this, "Tramite ingresado correctamente");
         
@@ -719,12 +714,15 @@ JOptionPane.showMessageDialog(this, "Tramite ingresado correctamente");
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
      //Aqui se modifica el coso de civiles
             
-        for (Usuarios civiles : civil) {
+ for (Usuarios civiles : civil) {
     if (civiles.getNumeroIdentidad().equals(usuarioscombo.getSelectedItem())) {
         civiles.setNombre(nombre1.getText());
         civiles.setApellido(apellido2.getText());
         civiles.setContraseña(contraseña2.getText());
-
+        
+       Date nuevaFecha = nuevafecha.getDate();
+        civiles.setFechaNacimiento(nuevaFecha);
+        
         if (civiles.getSexo().equals("Masculino")) {
             usuarioscombo.setSelectedIndex(0);
         } else {
@@ -732,7 +730,7 @@ JOptionPane.showMessageDialog(this, "Tramite ingresado correctamente");
         }
 
         String departamento = civiles.getDepartamento();
-        int xdxd= 0;  
+        int xdxd = 0;  
         if (departamento.equals("Francisco Morazán")) {
             xdxd = 0;
         } else if (departamento.equals("Cortés")) {
@@ -746,9 +744,9 @@ JOptionPane.showMessageDialog(this, "Tramite ingresado correctamente");
 
         break;
     } else {
-        JOptionPane.showMessageDialog(this, "Su modificación no ha sido correcta");
+        JOptionPane.showMessageDialog(this, "No ha ingresado nada....");
     }
-        }
+}
      
 
     }//GEN-LAST:event_jButton3MouseClicked
@@ -859,9 +857,9 @@ JOptionPane.showMessageDialog(this, "Tramite ingresado correctamente");
     // End of variables declaration//GEN-END:variables
 
      
-        
-    Usuarios empleado3 = new Empleados("Ingeniería", "Desarrollador", 5, "Juan", "Perez", "1234", new Date(), "Masculino", "Fransisco Morazan", "08");
-    Usuarios civiles4 = new Civiles("Jose", "Acosta", "1234", new Date(), "Femenino", "02", "123321");
+
+    Usuarios empleado3 = new Empleados("Ingeniería", "Desarrollador", 5, "Juan", "Perez", "1234", new Date(), "Masculino", "Fransisco Morazan", "0801010001234");
+    Usuarios civiles4 = new Civiles("Jose", "Acosta", "1234", new Date(), "Masculino", "Comayagua", "030912092024");
 
     ArrayList<Usuarios> civil = new ArrayList();
     ArrayList<Tramites> tramites = new ArrayList();

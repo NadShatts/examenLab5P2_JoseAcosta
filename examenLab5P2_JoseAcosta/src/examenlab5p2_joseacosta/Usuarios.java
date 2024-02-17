@@ -5,6 +5,7 @@
 package examenlab5p2_joseacosta;
 
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Random;
 
@@ -92,11 +93,12 @@ public class Usuarios {
     }
 
     public void setNumeroIdentidad(String numeroIdentidad) {
-        this.numeroIdentidad = numeroIdentidad;
-    }
-    
-    
+this.numeroIdentidad = numeroIdentidad;
+
 }
+}
+
+    
 
     
 

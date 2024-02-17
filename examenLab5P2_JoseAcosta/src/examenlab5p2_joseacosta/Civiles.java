@@ -19,9 +19,10 @@ public class Civiles extends Usuarios {
     public Civiles() {
     }
 
-    
     public Civiles(String nombre, String apellido, String contraseña, Date fechaNacimiento, String sexo, String departamento, String numeroIdentidad) {
         super(nombre, apellido, contraseña, fechaNacimiento, sexo, departamento, numeroIdentidad);
     }
 
+    
+    
 }
