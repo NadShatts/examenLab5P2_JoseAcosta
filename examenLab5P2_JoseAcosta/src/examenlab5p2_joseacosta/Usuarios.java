@@ -96,26 +96,7 @@ public class Usuarios {
 this.numeroIdentidad = numeroIdentidad;
 
 }
-    
-    public void generarIdentidadEspecial() {
-        String identificadorDepartamento = "";
-        String identificadorMunicipio = "";
-        Random random = new Random();
 
-        if (departamento.equals("Fransisco Morazan")) {
-            identificadorDepartamento = "01";
-            identificadorMunicipio = String.format("%02d", random.nextInt(28) + 1);
-        } else if (departamento.equals("Cortés")) {
-            identificadorDepartamento = "02";
-            identificadorMunicipio = String.format("%02d", random.nextInt(12) + 1);
-        } else if (departamento.equals("Comayagua")) {
-            identificadorDepartamento = "03";
-            identificadorMunicipio = String.format("%02d", random.nextInt(21) + 1);
-        }
-        String año = String.format("%04d", fechaNacimiento.getYear() + 1900);
-        String digitos = String.format("%05d", random.nextInt(100000));
-        numeroIdentidad = identificadorDepartamento + identificadorMunicipio + año + digitos;
-    }
 }
 
     
