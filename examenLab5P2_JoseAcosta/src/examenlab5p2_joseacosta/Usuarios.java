@@ -37,6 +37,7 @@ public class Usuarios {
        this.numeroIdentidad = numeroIdentidad;
     }
 
+        
     public String getNombre() {
         return nombre;
     }
@@ -91,7 +92,9 @@ public class Usuarios {
     }
 
     public void setNumeroIdentidad(String numeroIdentidad) {
+        this.numeroIdentidad = numeroIdentidad;
     }
+    
     
 }
 
